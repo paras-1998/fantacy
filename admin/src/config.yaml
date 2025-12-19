@@ -1,0 +1,19 @@
+MONGO_URL: "mongodb://fantacyuser:newfantacypass@localhost:27017/fantacy?authSource=admin"
+# MONGO_URL: "mongodb://localhost:27017/fantacy"
+
+# MONGO_URL: "mongodb+srv://dbuQuickTok:qFn9Mkq5rsvELv50@quicktok.ov4sst5.mongodb.net/?retryWrites=true&w=majority"
+
+
+
+
+PORT : 3005
+
+token:
+  access_token: sfmekdfhsdfbjefvbnd32492y48923jfnu34uroi34rhfu$1Lb83xtsfnjkrkjrk
+  forgot_password_code: fwe34qrffr343kdfhsdfqeqerry48923jfnu35435323xtsfnjfkvvrrkgrbjhtrwtg
+
+#GOOGLE_API_CLIENT_ID: 694282255330-g4l5tmu8452oiqu0l6j6dqp9pmn8hij6.apps.googleusercontent.com
+#GOOGLE_API_CLIENT_ID: 694282255330-efqks1d30l16m5on4374nq8t46oqfv4h.apps.googleusercontent.com
+
+#694282255330-efqks1d30l16m5on4374nq8t46oqfv4h.apps.googleusercontent.com
+#694282255330-3h0oorebc8doa51j2jsv7fe55nulccuv.apps.googleusercontent.com

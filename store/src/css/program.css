@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
+
+.rye-regular {
+  font-family: "Rye", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.h-lvh-fallback {
+  height: 100vh; /* Fallback */
+  height: 100lvh; /* Modern browsers */
+}
+.image-slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Fill parent container's width */
+  height: 100%; /* Fill parent container's height */
+  perspective: 1000px; /* Enable 3D effect */
+}
+
+.flip-container {
+  position: relative;
+  width: 100%; /* Match parent width */
+  height: 100%; /* Match parent height */
+  transform-style: preserve-3d;
+  transition: transform 0.25s ease-in; /* Smooth flip */
+  padding-top: 100%;
+}
+
+.flip-container.flip {
+  transform: rotateY(-180deg); /* Flip animation */
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%; /* Fill container */
+  /* height: 100%; */ /* Fill container */
+  backface-visibility: hidden; /* Hide the back during flip */
+  padding-top: 100%;
+  top: 0;
+  left: 0;
+}
+
+.front {
+  transform: rotateY(0deg); /* Front side */
+}
+
+.back {
+  transform: rotateY(180deg); /* Back side initially hidden */
+}
+
+.slider-image {
+  width: 100%; /* Scale image to fill container */
+  height: 100%; /* Scale image to fill container */
+  object-fit: contain; /* Ensure aspect ratio is preserved */
+
+  position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.image-name {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+
+
+
+/* ------------------------- */
+@media (min-width: 1536px) {
+  .container {
+      max-width: 100%;
+  }
+}
+
+.relative {
+  box-shadow: 0 0px 0px #0003 !important;
+}
+
+@media (width >= 1600px) {
+  .yantragrid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #0000003a;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #000000;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #333333;
+}
+
+  
+
+
+  
+  .relative {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+
+  @keyframes gradient-x {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .animate-gradient-x {
+    background-size: 300% 300%;
+    animation: gradient-x 30s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+  

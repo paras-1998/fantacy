@@ -1,0 +1,26 @@
+MONGODB_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/myDatabase
+JWT_SECRET=your_jwt_secret_key
+
+MONGO_URL: "mongodb://fantacyuser:newrfantacypass@localhost:27017/fantacy"
+
+
+
+use fantacy
+
+#MONGO_URL: "mongodb://sayit:newsayitpass@local:27017/sayit"
+MONGO_URL: "mongodb+srv://dbuQuickTok:qFn9Mkq5rsvELv50@quicktok.ov4sst5.mongodb.net/?retryWrites=true&w=majority"
+
+
+db.createUser( { user: "fantacyuser",
+                 pwd: "newrfantacypass",
+                 roles: [ { role: "dbAdmin", db: "fantacy" },
+                          { role: "dbOwner", db: "fantacy" },
+                          "readWrite"] } )
+
+
+"scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  }
