@@ -1,4 +1,4 @@
-MONGO_URL: "mongodb://fantacyuser:newfantacypass@localhost:27017/fantacy?authsource=admin"
+MONGO_URL: "mongodb://fantacyuser:newrfantacypass@localhost:27017/fantacy?authsource=admin"
 #MONGO_URL: "mongodb+srv://dbuQuickTok:qFn9Mkq5rsvELv50@quicktok.ov4sst5.mongodb.net/?retryWrites=true&w=majority"
 
 

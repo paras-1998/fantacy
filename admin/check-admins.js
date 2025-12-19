@@ -2,7 +2,9 @@ const mongoose = require('mongoose');
 
 async function checkAdmin() {
     try {
+        // await mongoose.connect('mongodb://fantacyuser:newrfantacypass@localhost:27017/fantacy?authSource=admin');
         await mongoose.connect('mongodb://fantacyuser:newrfantacypass@localhost:27017/fantacy?authSource=admin');
+       
         console.log('Connected to MongoDB\n');
         
         const admins = await mongoose.connection.db.collection('admins').find({}).toArray();

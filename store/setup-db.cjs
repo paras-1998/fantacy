@@ -2,7 +2,7 @@ const { MongoClient } = require('mongodb');
 
 async function setupDatabase() {
   // const uri = 'mongodb://localhost:27017';
-  const uri = 'mongodb://fantacyuser:newfantacypass@localhost:27017/fantacy?authSource=admin';
+  const uri = 'mongodb://fantacyuser:newrfantacypass@localhost:27017/fantacy?authSource=admin';
 
   const client = new MongoClient(uri);
 

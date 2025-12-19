@@ -15,7 +15,7 @@ const handler = app.getRequestHandler();
 import mongoose from 'mongoose';
 import { Console } from "node:console";
 
-await mongoose.connect('mongodb://fantacyuser:newfantacypass@localhost:27017/fantacy?authSource=admin');
+await mongoose.connect('mongodb://fantacyuser:newrfantacypass@localhost:27017/fantacy?authSource=admin');
 // await mongoose.connect('mongodb://localhost:27017/fantacy?authSource=admin');
 
 const Schema = mongoose.Schema;
