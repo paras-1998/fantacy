@@ -177,12 +177,17 @@ async function handler(req: newRequest, res: NextApiResponse) {
     aggQueryCnt.push({ $project: { _id: 0 } });
 
     // Execute aggregations
-    const transactions = await Tickets.aggregate(aggQuery).toArray?.() ?? await Tickets.aggregate(aggQuery);
-    // Some driver wrappers return a cursor; handle both forms:
-    const transactionsArray = Array.isArray(transactions) ? transactions : (await transactions.toArray?.()) ?? [];
+  // const transactions = await Tickets.aggregate(aggQuery).toArray?.() ?? await Tickets.aggregate(aggQuery);
+  const transactions = await Tickets.aggregate(aggQuery).exec();
 
+
+    // Some driver wrappers return a cursor; handle both forms:
+    // const transactionsArray = Array.isArray(transactions) ? transactions : (await transactions.toArray?.()) ?? [];
+const transactionsArray: any[] = await Tickets.aggregate(aggQuery).exec();
     let totalDocuments = 0;
-    const transactionsCntRes: any = await Tickets.aggregate(aggQueryCnt).toArray?.() ?? await Tickets.aggregate(aggQueryCnt);
+    // const transactionsCntRes: any = await Tickets.aggregate(aggQueryCnt).toArray?.() ?? await Tickets.aggregate(aggQueryCnt);
+   const transactionsCntRes: any = await Tickets.aggregate(aggQueryCnt).exec();
+
     const transactionsCntArray = Array.isArray(transactionsCntRes) ? transactionsCntRes : (await transactionsCntRes.toArray?.()) ?? [];
 
     if (transactionsCntArray.length > 0) {
