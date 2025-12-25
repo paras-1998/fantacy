@@ -217,19 +217,21 @@ const winnerbord = async () => {
   past12Hr.setSeconds(0);
   past12Hr.setMilliseconds(0);
   //let dt =  new Date( new Date().getTime() - ( ( 24 ) * 60 * 60 * 1000  ) );// offset is nuber of house
-  return await SessionsModel.find(
-    {
-        endTime: {
-            $gte: past12Hr,
-            $lte: new Date(), // <= current time
-        },
-        winnerType: { $ne: "" },
-        isDone: 1,
-    },
-    "winner winnerType endTime"
-)
-// .sort({ endTime: -1 }) // latest record first
-.lean();
+//   return await SessionsModel.find(
+//     {
+//         endTime: {
+//             $gte: past12Hr,
+//             $lte: new Date(), // <= current time
+//         },
+//         winnerType: { $ne: "" },
+//         isDone: 1,
+//     },
+//     "winner winnerType endTime"
+// )
+// // .sort({ endTime: -1 }) // latest record first
+// .lean();
+  return await SessionsModel.find({  endTime : {$gte : past12Hr } , winnerType: { $ne : "" } , isDone : 1 },"winner winnerType endTime").lean();  
+
 };
 
 // Program part End --------
