@@ -210,7 +210,7 @@ const winnerbord = async () => {
 
   // Round minutes to nearest 0 or 20
   let minutes = past12Hr.getMinutes();
-  past12Hr.setMinutes(minutes < 15 ? 0 : minutes < 45 ? 20 : 0);
+  past12Hr.setMinutes(minutes < 15 ? 0 : minutes < 45 ? 30 : 0);
   if (minutes >= 45) {
     past12Hr.setHours(past12Hr.getHours() + 1); // round up hour if minutes >= 45 and set to :00
   }
