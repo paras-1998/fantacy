@@ -413,6 +413,7 @@ export default function Prog() {
           winListEndRef.current?.lastElementChild?.scrollIntoView({ behavior: "smooth" });
         }, 10);
       });
+      
     });
 
     function onError() {

@@ -230,7 +230,19 @@ const winnerbord = async () => {
 // )
 // // .sort({ endTime: -1 }) // latest record first
 // .lean();
-  return await SessionsModel.find({  endTime : {$gte : past12Hr } , winnerType: { $ne : "" } , isDone : 1 },"winner winnerType endTime").lean();  
+return await SessionsModel.find({
+  endTime: {
+    $gte: past12Hr,
+    $lte: new Date()
+  },
+  winnerType: { $ne: "" },
+  isDone: 1,
+  $expr: {
+    $in: [{ $minute: "$endTime" }, [0, 20]]
+  }
+})
+.sort({ endTime: -1 })
+.lean();
 
 };
 
