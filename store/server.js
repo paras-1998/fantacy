@@ -228,7 +228,7 @@ const winnerbord = async () => {
     },
     "winner winnerType endTime"
 )
-.sort({ endTime: -1 }) // latest record first
+// .sort({ endTime: -1 }) // latest record first
 .lean();
 };
 
