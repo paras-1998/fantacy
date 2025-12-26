@@ -247,13 +247,48 @@ function calculateGroupPayout(winningType, cardGroup, ticketsData) {
 
   return groupPayout;
 }
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
+// function shuffleArray(array , distributionAmount) {
+//   for (let i = array.length - 1; i > 0; i--) {
+//     const j = Math.floor(Math.random() * (i + 1));
+//     [array[i], array[j]] = [array[j], array[i]];
+//   }
+//   return array;
+// }
+
+function shuffleArray(array, distributionAmount) {
+  if (!array.length) return [];
+  // console.log("shuffleArray_input", array, distributionAmount)
+
+  // 1️⃣ Find nearest payout <= distributionAmount
+  let bestIndex = -1;
+
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].payout <= distributionAmount) {
+      if (
+        bestIndex === -1 ||
+        array[i].payout > array[bestIndex].payout
+      ) {
+        bestIndex = i;
+      }
+    }
+  }
+
+  // If no eligible payout found
+  if (bestIndex === -1) return array;
+
+  // 2️⃣ Move best option to front
+  [array[0], array[bestIndex]] = [array[bestIndex], array[0]];
+
+  // 3️⃣ Shuffle remaining items (except index 0)
+  for (let i = array.length - 1; i > 1; i--) {
+    const j = Math.floor(Math.random() * i) + 1;
     [array[i], array[j]] = [array[j], array[i]];
   }
+
   return array;
 }
+
+
 
 async function getLastWinner() {
   // Find the last session with a winner, sorted by createdDate DESC
@@ -270,7 +305,7 @@ async function getLastWinner() {
 // Step 3: Find a random single winning group
 async function getRandomWinningGroup(soldTickets, distributionAmount) {
   console.log(soldTickets, distributionAmount)
-  const ticketEntries = shuffleArray(Object.entries(soldTickets)); // Shuffle tickets
+  const ticketEntries = shuffleArray(Object.entries(soldTickets), distributionAmount); // Shuffle tickets
   let validOptions = [];
   const lastWinner = await getLastWinner();
   // Iterate over all possible combinations
@@ -312,7 +347,7 @@ async function getRandomWinningGroup(soldTickets, distributionAmount) {
   } */
   // Randomly pick one from valid options
   return validOptions.length > 0
-    ? sample(shuffleArray(validOptions))
+    ? sample(shuffleArray(validOptions, distributionAmount))
     : null;
 }
 
